@@ -8,25 +8,25 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
 const testimonials = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    role: "Homeowner",
-    image: "/placeholder.svg?height=100&width=100",
+    name: "Shreyansh Gupta",
+    role: "Body Builder",
+    image: "/home/review.jpg",
     quote:
       "Working with Elegance Interiors was a dream. They transformed our outdated living room into a sophisticated space that perfectly reflects our style. Their attention to detail is unmatched.",
   },
   {
     id: 2,
-    name: "Michael Chen",
-    role: "Business Owner",
-    image: "/placeholder.svg?height=100&width=100",
+    name: "Pinky Gupta",
+    role: "Housewife",
+    image: "/home/review1.jpg",
     quote:
       "The team designed our office space with both aesthetics and functionality in mind. Our employees love the new environment, and clients are always impressed when they visit.",
   },
   {
     id: 3,
-    name: "Emily Rodriguez",
-    role: "Apartment Dweller",
-    image: "/placeholder.svg?height=100&width=100",
+    name: "Harshit Raj",
+    role: "All Rounder",
+    image: "/home/review3.jpg",
     quote:
       "I was amazed at how they maximized my small apartment space. Every inch was thoughtfully considered, and the result is a home that feels both spacious and cozy.",
   },
