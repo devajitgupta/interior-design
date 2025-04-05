@@ -1,11 +1,17 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { ArrowRight, Star } from "lucide-react"
 import Navigation from "../Navigation"
+
+const backgroundImages = [
+  "/home/hero-Image3.jpg",
+  "/home/hero-Image.jpg",
+  "/home/hero-Image4.jpg",
+]
 
 export default function Hero() {
   const ref = useRef(null)
@@ -17,21 +23,39 @@ export default function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"])
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
 
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % backgroundImages.length)
+    }, 5000) // 5 seconds per image
+
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <div ref={ref} className="relative min-h-screen">
       <Navigation />
 
-      {/* Background Image with Parallax Effect */}
+      {/* Background Carousel with Parallax */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <motion.div style={{ y, opacity }} className="h-full w-full">
-          <Image
-            src="/placeholder.svg?height=1080&width=1920"
-            alt="Interior Design"
-            fill
-            priority
-            className="object-cover brightness-[0.85]"
-          />
-        </motion.div>
+        {backgroundImages.map((src, i) => (
+          <motion.div
+            key={i}
+            style={{ y }}
+            className={`absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ease-in-out ${
+              i === currentImageIndex ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <Image
+              src={src}
+              alt={`Background ${i}`}
+              fill
+              priority={i === currentImageIndex}
+              className="object-cover brightness-[0.85]"
+            />
+          </motion.div>
+        ))}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/60" />
       </div>
 
@@ -144,4 +168,3 @@ export default function Hero() {
     </div>
   )
 }
-
