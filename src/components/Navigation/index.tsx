@@ -96,7 +96,7 @@ export default function Navigation() {
               transition={{ delay: 0.8 }}
             >
               <Link
-                href="/consultation"
+                href="/contact"
                 className="bg-amber-600 text-white px-5 py-2 rounded-md hover:bg-amber-700 transition-colors duration-200"
               >
                 Free Consultation

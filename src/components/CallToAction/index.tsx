@@ -35,7 +35,7 @@ export default function CallToAction() {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Link
-              href="/consultation"
+              href="/contact"
               className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-md font-medium transition-colors duration-200 flex items-center justify-center gap-2 group"
             >
               Book a Consultation
